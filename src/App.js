@@ -1,24 +1,78 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
 function App() {
+
+  const [firstName, setFirstName] = useState("");
+  const [LastName, setLastName] = useState("");
+  const [fullName, setFullName] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+  if (!firstName.trim() || !LastName.trim()) {
+    alert("Please fill out both fields");
+    return; 
+  }
+
+  setFullName(`${firstName} ${LastName}`);
+
+    
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+
+
+    <div>
+      <h1>Full Name Dispaly</h1>
+
+      <form onSubmit = {handleSubmit}>
+
+        <div>
+        <label htmlFor="firstName">First Name: </label>
+        <input
+          type="text"
+          placeholder="First Name"
+          label = "First Name"
+          value= {firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+          />
+      </div>
+
+      <div>
+        <label htmlFor="lastName">Last Name: </label>
+        <input
+        value={LastName}
+        type="text"
+        placeholder="Last Name"
+        label = "Last Name"
+        onChange={(e) => setLastName(e.target.value)}
+        />
+
+          
+      </div>
+
+      <div>
+        <button 
+        // style = {{font: bold}}
+        style={{ fontWeight: "bold" }}
+        type="submit"
+       
         >
-          Learn React
-        </a>
-      </header>
+          Submit
+        </button>
+      </div>
+
+
+
+      </form>
+
+      {fullName && (
+        <h2> Full Name: {fullName}</h2>
+      )}
+
+
     </div>
+  
   );
 }
 
