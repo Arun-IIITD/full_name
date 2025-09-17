@@ -23,10 +23,10 @@ function App() {
 
 
     <div>
-      <h1>Full Name Dispaly</h1>
+      
 
       <form onSubmit = {handleSubmit}>
-
+        <h1>Full Name Display</h1>
         <div>
         <label htmlFor="firstName">First Name: </label>
         <input
