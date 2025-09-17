@@ -10,7 +10,7 @@ function App() {
     e.preventDefault();
 
   if (!firstName.trim() || !LastName.trim()) {
-    alert("Please fill out both fields");
+    alert("Please fill out this field");
     return; 
   }
 
